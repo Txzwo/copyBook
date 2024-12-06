@@ -8,10 +8,14 @@ import urllib
 
 class QuanshuwangSpider(scrapy.Spider):
     name = 'quanshuwang'
-    allowed_domains = ['quanshuwang.com']
-    start_urls = ['http://quanshuwang.com/']
+    allowed_domains = ['www.xs4.cc']
+    start_urls = ['https://www.xs4.cc/all.html']
 
     def parse(self, response):
+
+
+        startPage = response.xpath("//ul[@class='pagination']/li/a")
+
         categorys = response.xpath("//ul[@class='channel-nav-list']/li/a")
 
         for category in categorys:
